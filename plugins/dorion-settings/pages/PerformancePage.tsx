@@ -1,4 +1,4 @@
-import { appName, backendRestartRequired, invoke } from '../../../api/api.js'
+import { appDisplayName, backendRestartRequired, invoke } from '../../../api/api.js'
 import { t } from '../../../util/i18n.js'
 import { css, classes } from './PerformancePage.tsx.scss'
 import { WarningCard } from '../components/WarningCard.jsx'
@@ -136,7 +136,7 @@ export function PerformancePage() {
         }
         disabled={platform() !== 'windows'}
         tooltipNote={platform() !== 'windows' && t('dorion_performance.windows_only')}
-        note={t('dorion_performance.auto_clear_cache_note', { appName })}
+        note={t('dorion_performance.auto_clear_cache_note', { appName: appDisplayName })}
       >
         {t('dorion_performance.auto_clear_cache')}
       </SwitchItem>
@@ -244,7 +244,7 @@ export function PerformancePage() {
           openConfirmationModal({
             body: () => (
               <p>
-                {t('dorion_performance.disable_plugins_warning', { appName })}
+                {t('dorion_performance.disable_plugins_warning', { appName: appDisplayName })}
               </p>
             ),
             header: () => t('dorion_performance.absolutely_sure'),

@@ -1,4 +1,4 @@
-import { app, appName, invoke } from '../../api/api.js'
+import { app, appName, appDisplayName, invoke } from '../../api/api.js'
 import { t } from '../../util/i18n.js'
 
 import { PerformancePage } from './pages/PerformancePage.jsx'
@@ -41,8 +41,8 @@ let settingsUninjects = []
 
   settingsUninjects = [
     registerSection('divider'),
-    registerSection('header', appName),
-    registerSection('section', `${appName}-settings`, t('dorion_settings.title', { appName }), SettingsPage, {
+    registerSection('header', appDisplayName),
+    registerSection('section', `${appName}-settings`, t('dorion_settings.title', { appName: appDisplayName }), SettingsPage, {
       icon: IconCog,
     }),
     registerSection('section', `${appName}-plugins`, t('common.plugins'), PluginsPage, {
@@ -96,7 +96,7 @@ const appendAppVersion = async () => {
 
   if (!firstChild) return
 
-  newVersionThing.innerHTML = `${appName} v${await app.getVersion()}`
+  newVersionThing.innerHTML = `${appDisplayName} v${await app.getVersion()}`
 
   if (hash) {
     newVersionThing.innerHTML += ` (${hash.slice(0, 7)})`

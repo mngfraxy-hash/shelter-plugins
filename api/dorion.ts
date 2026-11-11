@@ -1,5 +1,7 @@
 export default {
   name: 'Dorion',
+  // shown to the user; `name` stays the internal id (theme element, upstream changelog)
+  displayName: 'Tessera',
 
   invoke: (name: string, payload?: any) => {
     // for tauri v2, `invoke` exists on __TAURI__.core, instead of base __TAURI__, so we should check for both

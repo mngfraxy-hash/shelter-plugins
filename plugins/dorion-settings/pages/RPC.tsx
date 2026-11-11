@@ -1,4 +1,4 @@
-import { appName, backendRestartRequired, invoke } from '../../../api/api.js'
+import { appDisplayName, backendRestartRequired, invoke } from '../../../api/api.js'
 import { t } from '../../../util/i18n.js'
 import { css, classes } from './RPC.tsx.scss'
 import { WarningCard } from '../components/WarningCard.jsx'
@@ -156,7 +156,7 @@ export function RPCPage() {
           }, true)
         }}
         disabled={!settings().rpc_server}
-        note={t('dorion_rpc.process_scanner_note', { appName })}
+        note={t('dorion_rpc.process_scanner_note', { appName: appDisplayName })}
       >
         {t('dorion_rpc.enable_process_scanner')}
       </SwitchItem>
@@ -171,7 +171,7 @@ export function RPCPage() {
         disabled={!settings().rpc_server}
         note={
           <>
-            {t('dorion_rpc.ipc_connector_note', { appName, vscordLink: <a href="https://github.com/LeonardSSH/vscord" target="_blank">{t('common.vscord')}</a> })}
+            {t('dorion_rpc.ipc_connector_note', { appName: appDisplayName, vscordLink: <a href="https://github.com/LeonardSSH/vscord" target="_blank">{t('common.vscord')}</a> })}
           </>
         }
       >
@@ -186,7 +186,7 @@ export function RPCPage() {
           }, true)
         }}
         disabled={!settings().rpc_server}
-        note={t('dorion_rpc.websocket_connector_note', { appName })}
+        note={t('dorion_rpc.websocket_connector_note', { appName: appDisplayName })}
       >
         {t('dorion_rpc.enable_websocket_connector')}
       </SwitchItem>
@@ -199,7 +199,7 @@ export function RPCPage() {
           }, true)
         }}
         disabled={!settings().rpc_server}
-        note={t('dorion_rpc.secondary_events_note', { appName })}
+        note={t('dorion_rpc.secondary_events_note', { appName: appDisplayName })}
       >
         {t('dorion_rpc.enable_secondary_events')}
       </SwitchItem>

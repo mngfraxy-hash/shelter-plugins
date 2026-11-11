@@ -119,6 +119,8 @@ interface ConfirmationModalProps {
 
 interface Backend {
   name: string
+  // name shown to the user, when it differs from the internal name
+  displayName?: string
   invoke: (name: string, args?: any) => Promise<any>
   event: {
     emit: (name: string, args?: any) => void

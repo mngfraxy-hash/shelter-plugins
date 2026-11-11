@@ -59,6 +59,7 @@ export const backendRestartRequired = (v: boolean) => {
 }
 
 export const appName = backendObj.name
+export const appDisplayName = backendObj.displayName ?? backendObj.name
 export const invoke = backendObj.invoke
 export const event = backendObj.event
 export const app = backendObj.app

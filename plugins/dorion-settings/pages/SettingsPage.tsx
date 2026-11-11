@@ -1,4 +1,4 @@
-import { appName, backendRestartRequired, invoke } from '../../../api/api.js'
+import { appDisplayName, backendRestartRequired, invoke } from '../../../api/api.js'
 import { t } from '../../../util/i18n.js'
 import { css, classes } from './SettingsPage.tsx.scss'
 import { WarningCard } from '../components/WarningCard.jsx'
@@ -59,7 +59,7 @@ export function SettingsPage() {
 
   return (
     <>
-      <Header tag={HeaderTags.H1} class={classes.tophead}>{t('dorion_settings.title', { appName })}</Header>
+      <Header tag={HeaderTags.H1} class={classes.tophead}>{t('dorion_settings.title', { appName: appDisplayName })}</Header>
 
       {restartRequired() && (
         <WarningCard />
@@ -77,7 +77,7 @@ export function SettingsPage() {
         }}
         selected={settings().language ?? 'auto'}
       />
-      <Text class={classes.note}>{t('dorion_settings.language_note', { appName })}</Text>
+      <Text class={classes.note}>{t('dorion_settings.language_note', { appName: appDisplayName })}</Text>
 
       <Header class={classes.shead}>{t('dorion_settings.client_type')}</Header>
       <RadioGroup
@@ -146,7 +146,7 @@ export function SettingsPage() {
             true
           )
         }}
-        note={t('dorion_settings.sys_tray_note', { appName })}
+        note={t('dorion_settings.sys_tray_note', { appName: appDisplayName })}
       >
         {t('dorion_settings.sys_tray')}
       </SwitchItem>
@@ -215,7 +215,7 @@ export function SettingsPage() {
             }
           })
         }}
-        note={t('dorion_settings.open_on_startup_note', { appName })}
+        note={t('dorion_settings.open_on_startup_note', { appName: appDisplayName })}
       >
         {t('dorion_settings.open_on_startup')}
       </SwitchItem>
@@ -250,7 +250,7 @@ export function SettingsPage() {
             true
           )
         }}
-        note={t('dorion_settings.multi_instance_note', { appName })}
+        note={t('dorion_settings.multi_instance_note', { appName: appDisplayName })}
       >
         {t('dorion_settings.multi_instance')}
       </SwitchItem>
@@ -288,7 +288,7 @@ export function SettingsPage() {
         note={
           <>
             {t('dorion_settings.autoupdate_note', {
-              appName,
+              appName: appDisplayName,
               shelterPluginsLink: <a href="https://github.com/SpikeHD/shelter-plugins" target="_blank">
                 {t('common.spikehd_shelter_plugins')}
               </a>
