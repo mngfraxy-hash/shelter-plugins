@@ -23,3 +23,23 @@
   margin-bottom: 16px;
   opacity: 0.7;
 }
+
+.opacityrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.opacityinput {
+  width: 64px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--input-border, var(--background-modifier-accent));
+  background: var(--input-background, var(--background-secondary));
+  color: var(--text-normal);
+  font: inherit;
+}

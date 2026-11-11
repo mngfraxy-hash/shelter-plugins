@@ -50,6 +50,13 @@ export function SettingsPage() {
     }
   }
 
+  const setOpacity = (raw: number) => {
+    if (!Number.isFinite(raw)) return
+    const value = Math.min(100, Math.max(20, Math.round(raw)))
+    setSettings(p => ({ ...p, window_opacity: value }))
+    invoke('set_window_opacity', { value })
+  }
+
   return (
     <>
       <Header tag={HeaderTags.H1} class={classes.tophead}>{t('dorion_settings.title', { appName })}</Header>
@@ -169,19 +176,31 @@ export function SettingsPage() {
       </SwitchItem>
 
       <Header tag={HeaderTags.H4} class={classes.ohead}>{t('dorion_settings.window_opacity')}</Header>
-      <Slider
-        min={20}
-        max={100}
-        steps={['20%', '40%', '60%', '80%', '100%']}
-        step={5}
-        value={settings().window_opacity ?? 100}
-        onInput={(v) => {
-          const value = Math.round(parseFloat(v))
-          setSettings(p => ({ ...p, window_opacity: value }))
-          invoke('set_window_opacity', { value })
-        }}
-        tick={20}
-      />
+      <div class={classes.opacityrow}>
+        <div class={classes.grow}>
+          <Slider
+            min={20}
+            max={100}
+            steps={['20%', '40%', '60%', '80%', '100%']}
+            step={1}
+            value={settings().window_opacity ?? 100}
+            onInput={(v) => setOpacity(parseFloat(v))}
+            tick={20}
+          />
+        </div>
+        {/* exact value; applied on Enter or blur so a partial "2" is not clamped to 20 while typing */}
+        <input
+          type="number"
+          min="20"
+          max="100"
+          step="1"
+          class={classes.opacityinput}
+          aria-label={t('dorion_settings.window_opacity') as string}
+          value={settings().window_opacity ?? 100}
+          onChange={(e) => setOpacity(e.currentTarget.valueAsNumber)}
+        />
+        <Text>%</Text>
+      </div>
       <Text class={classes.note}>{t('dorion_settings.window_opacity_note')}</Text>
 
       <Header class={classes.shead}>{t('dorion_settings.startup')}</Header>

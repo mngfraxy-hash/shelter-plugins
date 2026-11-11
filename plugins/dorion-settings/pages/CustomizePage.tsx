@@ -5,6 +5,7 @@ import { WarningCard } from '../components/WarningCard.jsx'
 import { defaultConfig } from '../util/settings.js'
 import { HIDEABLE_ELEMENTS, applyHiddenUi, validSelector } from '../util/hideUi.js'
 import { applyAppearance, safeFont } from '../util/appearance.js'
+import { Gallery } from '../components/Gallery.jsx'
 
 const {
   ui: {
@@ -156,6 +157,8 @@ export function CustomizePage() {
       <Header tag={HeaderTags.H1} class={classes.tophead}>{t('dorion_customize.title')}</Header>
 
       {restartRequired() && <WarningCard />}
+
+      <Gallery settings={settings} setSettings={setSettings} />
 
       <Header class={classes.shead}>{t('dorion_customize.appearance')}</Header>
       <Text class={classes.note}>{t('dorion_customize.appearance_note')}</Text>

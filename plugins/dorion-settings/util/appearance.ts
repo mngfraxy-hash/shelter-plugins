@@ -78,6 +78,8 @@ export function buildAppearanceCss(config: Partial<DorionSettings>, wallpaper: s
       'background-primary', 'background-secondary', 'background-secondary-alt', 'background-tertiary',
       'background-base-lowest', 'background-base-lower', 'background-base-low', 'bg-base-primary',
       'bg-base-secondary', 'bg-base-tertiary', 'chat-background-default', 'app-frame-background',
+      // gallery bases (Midnight) paint their panels with these
+      'bg-1', 'bg-2', 'bg-3', 'bg-4',
     ].map(v => `--${v}: transparent`))
     rules.push(
       'html, body, #app-mount { background: transparent !important; }',

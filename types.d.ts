@@ -64,6 +64,9 @@ interface DorionSettings {
   wallpaper_file: string;
   wallpaper_blur: number;
   wallpaper_dim: number;
+  gallery_base: string;
+  gallery_palette: string;
+  gallery_favorites: string[];
 }
 
 interface DorionTheme {

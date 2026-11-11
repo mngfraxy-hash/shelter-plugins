@@ -52,4 +52,7 @@ export const defaultConfig = {
   wallpaper_file: '',
   wallpaper_blur: 0,
   wallpaper_dim: 50,
+  gallery_base: '',
+  gallery_palette: '',
+  gallery_favorites: [],
 }

@@ -11,6 +11,7 @@ import { RPCPage } from './pages/RPC.jsx'
 import { CustomizePage } from './pages/CustomizePage.jsx'
 import { applyHiddenUi } from './util/hideUi.js'
 import { applyAppearance } from './util/appearance.js'
+import { applyGallery } from './util/gallery.js'
 import { reloadThemes } from '../../util/theme.js'
 
 import { IconCog } from './icons/IconCog.jsx'
@@ -65,6 +66,7 @@ let settingsUninjects = []
   // @ts-expect-error womp womp
   const config = JSON.parse(await window.__TAURI__.core.invoke('read_config_file'))
   applyHiddenUi(config.hidden_ui_elements, config.custom_hidden_selectors)
+  applyGallery(config)
   applyAppearance(config)
 
   // Only fires while theme hot reload is on
