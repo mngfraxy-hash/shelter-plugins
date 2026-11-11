@@ -6,7 +6,7 @@ import { installThemeModal } from '../util/theme.jsx'
 import { defaultConfig } from '../util/settings.js'
 
 const {
-  ui: { Header, Button, HeaderTags, injectCss, Divider, ButtonSizes, Select, SelectOption },
+  ui: { Header, Button, HeaderTags, injectCss, Divider, ButtonSizes, Select, SelectOption, Switch, Text },
   solid: { createSignal, createEffect },
 } = shelter
 
@@ -49,6 +49,26 @@ export function ThemesPage() {
     })
   }
 
+  const moveTheme = (index: number, offset: number) => {
+    const target = index + offset
+    if (target < 0 || target >= settings().themes.length) return
+
+    setSettings(p => {
+      const themes = [...p.themes]
+      ;[themes[index], themes[target]] = [themes[target], themes[index]]
+      return { ...p, themes }
+    })
+    reloadThemes()
+  }
+
+  const setThemeEnabled = (theme: string, enabled: boolean) => {
+    setSettings(p => {
+      const disabled = (p.disabled_themes ?? []).filter(t => t !== theme)
+      return { ...p, disabled_themes: enabled ? disabled : [...disabled, theme] }
+    })
+    reloadThemes()
+  }
+
   const openThemesFolder = () => {
     invoke('open_themes')
   }
@@ -82,21 +102,34 @@ export function ThemesPage() {
 
       <Header class={classes.shead}>{t('dorion_themes.theme')}</Header>
 
+      {settings().themes.length > 1 && (
+        <Text class={classes.note}>{t('dorion_themes.order_note')}</Text>
+      )}
+
       {
-        settings().themes.map((theme) => (
-          <Select
-            style={{ 'margin-bottom': '8px' }}
-            value={theme}
-            onChange={(v) => {
-              appendTheme(theme, String(v))
-              reloadThemes()
-            }}
-          >
-            <SelectOption value="none">{t('dorion_themes.none')}</SelectOption>
-            {themes().map((o) => (
-              <SelectOption value={o.value}>{o.label}</SelectOption>
-            ))}
-          </Select>
+        settings().themes.map((theme, index) => (
+          <div class={classes.themerow}>
+            <Select
+              style={{ 'margin-bottom': '8px', 'flex-grow': 1 }}
+              value={theme}
+              onChange={(v) => {
+                appendTheme(theme, String(v))
+                reloadThemes()
+              }}
+            >
+              <SelectOption value="none">{t('dorion_themes.none')}</SelectOption>
+              {themes().map((o) => (
+                <SelectOption value={o.value}>{o.label}</SelectOption>
+              ))}
+            </Select>
+            <Button size={ButtonSizes.ICON} tooltip={t('dorion_themes.move_up')} disabled={index === 0} onClick={() => moveTheme(index, -1)}>↑</Button>
+            <Button size={ButtonSizes.ICON} tooltip={t('dorion_themes.move_down')} disabled={index === settings().themes.length - 1} onClick={() => moveTheme(index, 1)}>↓</Button>
+            <Switch
+              checked={!(settings().disabled_themes ?? []).includes(theme)}
+              tooltip={t('dorion_themes.enabled')}
+              onChange={(v) => setThemeEnabled(theme, v)}
+            />
+          </div>
         )
         )
       }

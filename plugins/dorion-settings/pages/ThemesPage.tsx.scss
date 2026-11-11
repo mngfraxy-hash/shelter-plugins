@@ -17,3 +17,15 @@
     width: 100% !important;
   }
 }
+
+.themerow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.note {
+  display: block;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}

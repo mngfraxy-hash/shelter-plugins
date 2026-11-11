@@ -65,14 +65,21 @@
     "updates": "Updates",
     "autoupdate": "Autoupdate",
     "autoupdate_note": "Automatically update various {{appName}} components, such as {{shelterPluginsLink}}.",
-    "update_notify": "Notify me of updates"
+    "update_notify": "Notify me of updates",
+    "always_on_top": "Always on Top",
+    "window_opacity": "Window Opacity",
+    "window_opacity_note": "Windows only. May not apply to the Discord content on some systems."
   },
   "dorion_plugins": {
     "title": "Client Mods & Plugins",
     "client_mods": "Client Mods",
     "plugins": "Plugins",
     "open_plugins_folder": "Open Plugins Folder",
-    "open_extensions_folder": "Open Extensions Folder"
+    "open_extensions_folder": "Open Extensions Folder",
+    "import_plugin": "Import Plugin File",
+    "export_plugins": "Export Plugin List",
+    "import_done": "Plugin imported, restart to load it.",
+    "import_failed": "Import failed"
   },
   "dorion_themes": {
     "title": "Theme Browser",
@@ -88,7 +95,11 @@
     "likes": "Likes",
     "downloads": "Downloads",
     "recently_updated": "Recently Updated",
-    "search_placeholder": "Search..."
+    "search_placeholder": "Search...",
+    "move_up": "Move up",
+    "move_down": "Move down",
+    "enabled": "Enabled",
+    "order_note": "Themes load from top to bottom, later themes override earlier ones."
   },
   "dorion_notifications": {
     "desktop_notifications_enabled_title": "Desktop Notifications Enabled",
@@ -139,7 +150,13 @@
     "wipe_web_data": "Wipe all web-based data",
     "clear_css_cache": "Clear CSS Cache",
     "css_cache_cleared": "CSS Cache Cleared",
-    "clear_web_cache_warning": "Clearing web cache will log you out and reset your settings, but can often help solve permission-based issues.\n\nDo you want to proceed?"
+    "clear_web_cache_warning": "Clearing web cache will log you out and reset your settings, but can often help solve permission-based issues.\n\nDo you want to proceed?",
+    "low_memory_when_hidden": "Reduce Memory When Hidden",
+    "low_memory_when_hidden_note": "Asks WebView2 to trim memory while the window is minimized or in the tray. Windows only.",
+    "disable_hw_video_encode": "Disable Hardware Video Encoding",
+    "disable_hw_video_encode_note": "Screen share and camera use the CPU encoder instead of the GPU. Codec choice is not possible, Discord negotiates it.",
+    "webview_args": "Extra WebView2 Arguments",
+    "webview_args_note": "Advanced. Space-separated Chromium flags starting with --. Remote debugging flags are ignored. A bad flag can stop the app from starting: launch with --safemode to recover."
   },
   "dorion_rpc": {
     "title": "Rich Presence",
@@ -193,5 +210,34 @@
     "restart_message": "One or more settings have been changed that require a restart to take effect.",
     "restart_now": "Restart Now",
     "restart_later": "Restart Later"
+  },
+  "dorion_customize": {
+    "title": "Customization",
+    "hide_ui": "Hide Discord UI Elements",
+    "fragile": "Fragile: depends on Discord's internal markup and may stop working after a Discord update.",
+    "config_profiles": "Configuration Profiles",
+    "config_profiles_note": "Snapshots of every setting above. Loading a profile overwrites the current settings and needs a restart.",
+    "profile_name": "Profile name...",
+    "save_profile": "Save Current Settings",
+    "load_profile": "Load",
+    "delete_profile": "Delete",
+    "export_config": "Export Settings File",
+    "import_config": "Import Settings File",
+    "saved": "Saved",
+    "loaded": "Loaded, restart to apply",
+    "failed": "Failed",
+    "safe_mode": "Safe Mode",
+    "safe_mode_note": "Restart with themes, plugins and client mods disabled.",
+    "restart_safe_mode": "Restart in Safe Mode",
+    "el_store": "Nitro tab (DM list)",
+    "el_shop": "Shop tab (DM list)",
+    "el_quests": "Quests tab (DM list)",
+    "el_discover": "Discover button (server list)",
+    "el_download": "Download Apps button (server list)",
+    "el_active_now": "Active Now column (Friends)",
+    "el_gift": "Gift button (message bar)",
+    "el_gif": "GIF button (message bar)",
+    "el_sticker": "Sticker button (message bar)",
+    "el_app_launcher": "App Launcher button (message bar)"
   }
 }

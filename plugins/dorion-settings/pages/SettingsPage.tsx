@@ -11,6 +11,7 @@ const {
     Header,
     HeaderTags,
     Slider,
+    Text,
     injectCss,
   },
   solid: { createSignal, createEffect },
@@ -142,6 +143,32 @@ export function SettingsPage() {
       >
         {t('dorion_settings.start_maximized')}
       </SwitchItem>
+
+      <SwitchItem
+        value={settings().always_on_top}
+        onChange={(v) => {
+          setSettings(p => ({ ...p, always_on_top: v }))
+          invoke('set_always_on_top', { value: v })
+        }}
+      >
+        {t('dorion_settings.always_on_top')}
+      </SwitchItem>
+
+      <Header tag={HeaderTags.H4} class={classes.ohead}>{t('dorion_settings.window_opacity')}</Header>
+      <Slider
+        min={20}
+        max={100}
+        steps={['20%', '40%', '60%', '80%', '100%']}
+        step={5}
+        value={settings().window_opacity ?? 100}
+        onInput={(v) => {
+          const value = Math.round(parseFloat(v))
+          setSettings(p => ({ ...p, window_opacity: value }))
+          invoke('set_window_opacity', { value })
+        }}
+        tick={20}
+      />
+      <Text class={classes.note}>{t('dorion_settings.window_opacity_note')}</Text>
 
       <Header class={classes.shead}>{t('dorion_settings.startup')}</Header>
       <SwitchItem

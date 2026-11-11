@@ -1,3 +1,8 @@
+> [!NOTE]
+> **Modified fork** of [SpikeHD/shelter-plugins](https://github.com/SpikeHD/shelter-plugins) (GPL-3.0), changed by mngfraxy-hash on 2026-11-11, branch `fraxy/settings-options`.
+> Only `dorion-settings`, `types.d.ts` and `i18n/en.json` are modified, to expose the new options of the matching Dorion fork.
+> All original credits and the license are unchanged.
+
 <h1 align="center">
  SpikeHD's shelter plugins
 </h1>

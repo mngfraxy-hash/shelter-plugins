@@ -8,6 +8,8 @@ import { ChangelogPage } from './pages/ChangelogPage.jsx'
 import { PluginsPage } from './pages/PluginsPage.jsx'
 import { ThemesPage } from './pages/ThemesPage.jsx'
 import { RPCPage } from './pages/RPC.jsx'
+import { CustomizePage } from './pages/CustomizePage.jsx'
+import { applyHiddenUi } from './util/hideUi.js'
 
 import { IconCog } from './icons/IconCog.jsx'
 import { IconPlugins } from './icons/IconPlugins.jsx'
@@ -53,7 +55,14 @@ let settingsUninjects = []
     registerSection('section', `${appName}-profiles`, t('dorion_profiles.title'), ProfilesPage, {
       icon: IconProfile,
     }),
+    registerSection('section', `${appName}-customize`, t('dorion_customize.title'), CustomizePage, {
+      icon: IconCog,
+    }),
   ]
+
+  // @ts-expect-error womp womp
+  const config = JSON.parse(await window.__TAURI__.core.invoke('read_config_file'))
+  applyHiddenUi(config.hidden_ui_elements)
 })()
 
 const appendAppVersion = async () => {
@@ -112,5 +121,6 @@ checkForUpdates()
 
 export const onUnload = () => {
   settingsUninjects.forEach((u) => u && u())
+  applyHiddenUi([])
   dispatcher.unsubscribe('USER_SETTINGS_MODAL_OPEN', appendAppVersion)
 }

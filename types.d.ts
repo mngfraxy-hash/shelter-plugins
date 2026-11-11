@@ -42,6 +42,15 @@ interface DorionSettings {
   rpc_ipc_connector: boolean;
   rpc_websocket_connector: boolean;
   rpc_secondary_events: boolean;
+
+  // fraxy/settings-options
+  always_on_top: boolean;
+  window_opacity: number;
+  webview_args: string;
+  disable_hw_video_encode: boolean;
+  low_memory_when_hidden: boolean;
+  hidden_ui_elements: string[];
+  disabled_themes: string[];
 }
 
 interface DorionTheme {

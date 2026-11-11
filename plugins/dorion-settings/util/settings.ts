@@ -31,4 +31,12 @@ export const defaultConfig = {
   rpc_ipc_connector: true,
   rpc_websocket_connector: true,
   rpc_secondary_events: true,
+
+  always_on_top: false,
+  window_opacity: 100,
+  webview_args: '',
+  disable_hw_video_encode: false,
+  low_memory_when_hidden: false,
+  hidden_ui_elements: [],
+  disabled_themes: [],
 }

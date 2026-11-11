@@ -14,7 +14,9 @@ const {
     HeaderTags,
     showToast,
     Select,
-    SelectOption
+    SelectOption,
+    TextBox,
+    Text,
   },
   solid: { createSignal, createEffect },
 } = shelter
@@ -191,6 +193,38 @@ export function PerformancePage() {
       >
         {t('dorion_performance.disable_hardware_accel')}
       </SwitchItem>
+
+      <SwitchItem
+        value={state().disable_hw_video_encode}
+        onChange={(v) =>
+          setSettings((settings) => ({ ...settings, disable_hw_video_encode: v }), true)
+        }
+        note={t('dorion_performance.disable_hw_video_encode_note')}
+        disabled={platform() !== 'windows'}
+      >
+        {t('dorion_performance.disable_hw_video_encode')}
+      </SwitchItem>
+
+      <SwitchItem
+        value={state().low_memory_when_hidden}
+        onChange={(v) =>
+          setSettings((settings) => ({ ...settings, low_memory_when_hidden: v }))
+        }
+        note={t('dorion_performance.low_memory_when_hidden_note')}
+        disabled={platform() !== 'windows'}
+      >
+        {t('dorion_performance.low_memory_when_hidden')}
+      </SwitchItem>
+
+      <Header tag={HeaderTags.H4} class={classes.shead}>{t('dorion_performance.webview_args')}</Header>
+      <TextBox
+        value={state().webview_args ?? ''}
+        placeholder="--flag-one --flag-two"
+        onInput={(v) =>
+          setSettings((settings) => ({ ...settings, webview_args: v }), true)
+        }
+      />
+      <Text class={classes.note}>{t('dorion_performance.webview_args_note')}</Text>
 
       <SwitchItem
         value={state().client_plugins || state().client_plugins === null || state().client_plugins === undefined}

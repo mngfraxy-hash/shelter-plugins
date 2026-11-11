@@ -1,0 +1,36 @@
+.tophead {
+  margin-bottom: 16px;
+}
+
+.shead {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.note {
+  display: block;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.pbuttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+
+  button {
+    width: 100% !important;
+  }
+}
