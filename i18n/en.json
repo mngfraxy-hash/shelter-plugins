@@ -67,8 +67,11 @@
     "autoupdate_note": "Automatically update various {{appName}} components, such as {{shelterPluginsLink}}.",
     "update_notify": "Notify me of updates",
     "always_on_top": "Always on Top",
-    "window_opacity": "Window Opacity",
-    "window_opacity_note": "Windows only. May not apply to the Discord content on some systems."
+    "window_opacity": "Window Transparency",
+    "window_opacity_note": "Lower it to see through the window. 100% = normal. Windows only.",
+    "language": "Language",
+    "language_auto": "Automatic (same as Windows)",
+    "language_note": "Language of the {{appName}} settings, menus and loading screen. To change the language of Discord itself: User Settings > Language. Restart needed."
   },
   "dorion_plugins": {
     "title": "Client Mods & Plugins",
@@ -76,10 +79,10 @@
     "plugins": "Plugins",
     "open_plugins_folder": "Open Plugins Folder",
     "open_extensions_folder": "Open Extensions Folder",
-    "import_plugin": "Import Plugin File",
-    "export_plugins": "Export Plugin List",
-    "import_done": "Plugin imported, restart to load it.",
-    "import_failed": "Import failed"
+    "import_plugin": "Add a Plugin File",
+    "export_plugins": "Save Plugin List to Downloads",
+    "import_done": "Plugin added. Restart to load it.",
+    "import_failed": "It did not work"
   },
   "dorion_themes": {
     "title": "Theme Browser",
@@ -99,7 +102,11 @@
     "move_up": "Move up",
     "move_down": "Move down",
     "enabled": "Enabled",
-    "order_note": "Themes load from top to bottom, later themes override earlier ones."
+    "order_note": "Themes load from top to bottom. If two themes change the same thing, the lower one wins.",
+    "fetching": "Downloading...",
+    "applying": "Applying {{name}}...",
+    "saving": "Saving...",
+    "done": "Done!"
   },
   "dorion_notifications": {
     "desktop_notifications_enabled_title": "Desktop Notifications Enabled",
@@ -151,12 +158,12 @@
     "clear_css_cache": "Clear CSS Cache",
     "css_cache_cleared": "CSS Cache Cleared",
     "clear_web_cache_warning": "Clearing web cache will log you out and reset your settings, but can often help solve permission-based issues.\n\nDo you want to proceed?",
-    "low_memory_when_hidden": "Reduce Memory When Hidden",
-    "low_memory_when_hidden_note": "Asks WebView2 to trim memory while the window is minimized or in the tray. Windows only.",
-    "disable_hw_video_encode": "Disable Hardware Video Encoding",
-    "disable_hw_video_encode_note": "Screen share and camera use the CPU encoder instead of the GPU. Codec choice is not possible, Discord negotiates it.",
-    "webview_args": "Extra WebView2 Arguments",
-    "webview_args_note": "Advanced. Space-separated Chromium flags starting with --. Remote debugging flags are ignored. A bad flag can stop the app from starting: launch with --safemode to recover."
+    "low_memory_when_hidden": "Use Less RAM When Minimized",
+    "low_memory_when_hidden_note": "When the window is minimized or in the tray, Windows is asked to free memory. Reopening can take a split second longer. Windows only.",
+    "disable_hw_video_encode": "Use the CPU for Screen Share and Camera",
+    "disable_hw_video_encode_note": "Turn on if your screen share or camera stutters or shows a black image. Uses more CPU. Restart needed.",
+    "webview_args": "Advanced: Extra Browser Options",
+    "webview_args_note": "For experts only. Chromium options separated by spaces, each starting with --. If the app no longer starts, open it with --safemode."
   },
   "dorion_rpc": {
     "title": "Rich Presence",
@@ -197,7 +204,8 @@
     "update_to": "Update to {{version}}",
     "current": "Current",
     "latest": "Latest",
-    "view_on_github": "View on GitHub"
+    "view_on_github": "View on GitHub",
+    "load_failed": "Could not load the changelog"
   },
   "dorion_theme_card": {
     "install": "Install",
@@ -213,21 +221,21 @@
   },
   "dorion_customize": {
     "title": "Customization",
-    "hide_ui": "Hide Discord UI Elements",
-    "fragile": "Fragile: depends on Discord's internal markup and may stop working after a Discord update.",
-    "config_profiles": "Configuration Profiles",
-    "config_profiles_note": "Snapshots of every setting above. Loading a profile overwrites the current settings and needs a restart.",
-    "profile_name": "Profile name...",
+    "hide_ui": "Hide Parts of Discord",
+    "fragile": "May stop working after a Discord update.",
+    "config_profiles": "Settings Profiles",
+    "config_profiles_note": "Save all your {{appName}} settings under a name and switch back to them later. Loading a profile needs a restart.",
+    "profile_name": "Profile name (letters and numbers)",
     "save_profile": "Save Current Settings",
     "load_profile": "Load",
     "delete_profile": "Delete",
-    "export_config": "Export Settings File",
-    "import_config": "Import Settings File",
+    "export_config": "Save Settings File to Downloads",
+    "import_config": "Load a Settings File",
     "saved": "Saved",
-    "loaded": "Loaded, restart to apply",
-    "failed": "Failed",
+    "loaded": "Loaded. Restart to apply.",
+    "failed": "It did not work",
     "safe_mode": "Safe Mode",
-    "safe_mode_note": "Restart with themes, plugins and client mods disabled.",
+    "safe_mode_note": "Restart without themes, plugins or client mods. Use it if something broke the app.",
     "restart_safe_mode": "Restart in Safe Mode",
     "el_store": "Nitro tab (DM list)",
     "el_shop": "Shop tab (DM list)",
@@ -238,6 +246,7 @@
     "el_gift": "Gift button (message bar)",
     "el_gif": "GIF button (message bar)",
     "el_sticker": "Sticker button (message bar)",
-    "el_app_launcher": "App Launcher button (message bar)"
+    "el_app_launcher": "App Launcher button (message bar)",
+    "deleted": "Deleted"
   }
 }

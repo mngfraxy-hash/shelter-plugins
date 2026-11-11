@@ -14,11 +14,15 @@ export function t(
   const lang = window.__DORION_LANG ?? 'en'
   const translations = window.__DORION_TRANSLATIONS
 
-  let value: any = translations?.[lang]
-  for (const k of key.split('.')) {
-    value = value?.[k]
-    if (value == null) return key
+  const lookup = (l: string) => {
+    let v: any = translations?.[l]
+    for (const k of key.split('.')) v = v?.[k]
+    return v
   }
+
+  // Fall back to English for keys a translation does not have yet
+  const value: any = lookup(lang) ?? lookup('en')
+  if (value == null) return key
 
   if (!replace) return value
 

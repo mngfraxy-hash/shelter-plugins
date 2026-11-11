@@ -1,21 +1,22 @@
 import { appName, api, invoke } from '../api/api.js'
+import { t } from './i18n.js'
 
 export const installAndLoad = async (link: string, statusUpdater: (string) => void, filename?: string) => {
-  statusUpdater('Fetching...')
+  statusUpdater(t('dorion_themes.fetching') as string)
 
   const themeName = await invoke('theme_from_link', {
     link,
     filename
   })
 
-  statusUpdater(`Applying ${themeName} ...`)
+  statusUpdater(t('dorion_themes.applying', { name: themeName }) as string)
 
   // Save the theme to the config
   const config = JSON.parse(await invoke('read_config_file'))
 
   config?.themes?.push(themeName) 
 
-  statusUpdater('Saving...')
+  statusUpdater(t('dorion_themes.saving') as string)
 
   await invoke('write_config_file', {
     contents: JSON.stringify(config)
@@ -24,7 +25,7 @@ export const installAndLoad = async (link: string, statusUpdater: (string) => vo
   // Get the Dorion theme style tag, replace the contents
   await reloadThemes()
 
-  statusUpdater('Done!')
+  statusUpdater(t('dorion_themes.done') as string)
 
   return themeName
 }

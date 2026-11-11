@@ -39,4 +39,5 @@ export const defaultConfig = {
   low_memory_when_hidden: false,
   hidden_ui_elements: [],
   disabled_themes: [],
+  language: 'auto',
 }

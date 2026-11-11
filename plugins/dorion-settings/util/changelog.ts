@@ -1,6 +1,7 @@
 import { marked } from 'marked'
 import { TReleases } from '../types/release.js'
 import { api, appName } from '../../../api/api.js'
+import { t } from '../../../util/i18n.js'
 
 const {
   ui: { showToast },
@@ -28,7 +29,7 @@ export async function loadChangelog(): Promise<TReleases> {
   catch (e) {
     console.error(e)
     showToast({
-      title: 'Failed to load changelog',
+      title: t('dorion_changelog.load_failed') as string,
       content: e.message,
       duration: 3000,
     })

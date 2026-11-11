@@ -51,6 +51,7 @@ interface DorionSettings {
   low_memory_when_hidden: boolean;
   hidden_ui_elements: string[];
   disabled_themes: string[];
+  language: string;
 }
 
 interface DorionTheme {

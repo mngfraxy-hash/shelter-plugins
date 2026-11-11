@@ -58,6 +58,20 @@ export function SettingsPage() {
         <WarningCard />
       )}
 
+      <Header class={classes.shead}>{t('dorion_settings.language')}</Header>
+      <RadioGroup
+        options={[
+          { label: t('dorion_settings.language_auto'), value: 'auto' },
+          { label: 'English', value: 'en' },
+          { label: 'Français', value: 'fr' },
+        ]}
+        onChange={(e) => {
+          setSettings(p => ({ ...p, language: e }), true)
+        }}
+        selected={settings().language ?? 'auto'}
+      />
+      <Text class={classes.note}>{t('dorion_settings.language_note', { appName })}</Text>
+
       <Header class={classes.shead}>{t('dorion_settings.client_type')}</Header>
       <RadioGroup
         options={[

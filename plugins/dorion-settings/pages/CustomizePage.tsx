@@ -125,7 +125,7 @@ export function CustomizePage() {
             size={ButtonSizes.SMALL}
             color={ButtonColors.RED}
             onClick={async () => {
-              await run(() => invoke('delete_config_snapshot', { name }), t('dorion_customize.saved') as string)
+              await run(() => invoke('delete_config_snapshot', { name }), t('dorion_customize.deleted') as string)
               refreshSnapshots()
             }}
           >
