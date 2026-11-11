@@ -68,7 +68,7 @@
     "update_notify": "Notify me of updates",
     "always_on_top": "Always on Top",
     "window_opacity": "Window Transparency",
-    "window_opacity_note": "Lower it to see through the window. 100% = normal. Windows only.",
+    "window_opacity_note": "Lower it to see through the window. 100% = normal. Windows, and Linux with X11 and a compositor.",
     "language": "Language",
     "language_auto": "Automatic (same as Windows)",
     "language_note": "Language of the {{appName}} settings, menus and loading screen. To change the language of Discord itself: User Settings > Language. Restart needed."
@@ -106,7 +106,12 @@
     "fetching": "Downloading...",
     "applying": "Applying {{name}}...",
     "saving": "Saving...",
-    "done": "Done!"
+    "done": "Done!",
+    "import_file": "Import a .css file",
+    "imported": "Theme {{name}} imported",
+    "import_failed": "Import failed",
+    "hot_reload": "Reload themes when their file changes",
+    "hot_reload_note": "Handy while editing a theme. Checks the themes folder every 2 seconds while on."
   },
   "dorion_notifications": {
     "desktop_notifications_enabled_title": "Desktop Notifications Enabled",
@@ -118,7 +123,13 @@
     "enable_global_keybinds": "Enable Global Keybinds",
     "enable_global_keybinds_note": "Enable or disable global keybinds. Requires restart.",
     "keybinds_restart_required": "Enabling or disabling global keybinds requires a restart to take effect.",
-    "restart": "Restart"
+    "restart": "Restart",
+    "action_toggle_window": "Show / hide Dorion",
+    "action_toggle_window_note": "Brings Dorion to the front, or hides it if it already is.",
+    "action_toggle_on_top": "Toggle always on top",
+    "action_toggle_on_top_note": "Until Dorion restarts.",
+    "action_cycle_opacity": "Cycle window opacity",
+    "action_cycle_opacity_note": "100%, 80%, 60%, until Dorion restarts. Windows, and Linux with X11."
   },
   "dorion_updater": {
     "update_title": "{{appName}} Update",
@@ -247,6 +258,33 @@
     "el_gif": "GIF button (message bar)",
     "el_sticker": "Sticker button (message bar)",
     "el_app_launcher": "App Launcher button (message bar)",
-    "deleted": "Deleted"
+    "deleted": "Deleted",
+    "appearance": "Appearance",
+    "appearance_note": "Changes Discord's look without writing CSS. Relies on Discord's internal names, so it can stop working after a Discord update. For anything else, use a theme or Inline CSS.",
+    "font": "Font (installed on this computer, separate several with commas)",
+    "font_invalid": "Ignored: only letters, digits, spaces, hyphens and commas.",
+    "accent": "Accent color",
+    "default": "Default",
+    "chat_width": "Maximum chat width",
+    "wallpaper": "Wallpaper",
+    "wallpaper_note": "An image from your computer behind Discord (PNG, JPG, WebP or GIF, 5 MB max). A copy is kept in Dorion's folder. Uses a little more memory while set.",
+    "choose_wallpaper": "Choose an image",
+    "remove_wallpaper": "Remove",
+    "wallpaper_too_big": "Image too large (5 MB max).",
+    "wallpaper_blur": "Blur",
+    "wallpaper_dim": "Darken (for readability)",
+    "window": "Window",
+    "window_title": "Window title (empty = Dorion's usual title)",
+    "frame_note": "Windows 11 only. The title bar color only shows with the Windows title bar.",
+    "border_color": "Border color",
+    "caption_color": "Title bar color",
+    "corners": "Window corners",
+    "corners_default": "System default",
+    "corners_round": "Rounded",
+    "corners_small": "Slightly rounded",
+    "corners_square": "Square",
+    "custom_selectors": "Hide other elements",
+    "custom_selectors_note": "One CSS selector per line. A selector that is too broad can hide the whole app: safe mode, below, gets you out.",
+    "custom_selectors_invalid": "Ignored (invalid): {{list}}"
   }
 }

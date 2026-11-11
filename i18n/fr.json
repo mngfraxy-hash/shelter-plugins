@@ -68,7 +68,7 @@
     "update_notify": "Me prévenir des mises à jour",
     "always_on_top": "Toujours au premier plan",
     "window_opacity": "Transparence de la fenêtre",
-    "window_opacity_note": "Baissez pour voir à travers la fenêtre. 100 % = normal. Windows uniquement.",
+    "window_opacity_note": "Baissez pour voir à travers la fenêtre. 100 % = normal. Windows, et Linux sous X11 avec compositeur.",
     "language": "Langue",
     "language_auto": "Automatique (comme Windows)",
     "language_note": "Langue des paramètres, des menus et de l'écran de chargement de {{appName}}. Pour changer la langue de Discord lui-même : Paramètres utilisateur > Langue. Redémarrage nécessaire."
@@ -106,7 +106,12 @@
     "fetching": "Téléchargement...",
     "applying": "Application de {{name}}...",
     "saving": "Enregistrement...",
-    "done": "Terminé !"
+    "done": "Terminé !",
+    "import_file": "Importer un fichier .css",
+    "imported": "Thème {{name}} importé",
+    "import_failed": "Échec de l'import",
+    "hot_reload": "Recharger les thèmes quand leur fichier change",
+    "hot_reload_note": "Pratique pour modifier un thème. Vérifie le dossier des thèmes toutes les 2 secondes tant que c'est activé."
   },
   "dorion_notifications": {
     "desktop_notifications_enabled_title": "Notifications activées",
@@ -118,7 +123,13 @@
     "enable_global_keybinds": "Activer les raccourcis globaux",
     "enable_global_keybinds_note": "Raccourcis qui marchent même quand la fenêtre n'est pas active. Redémarrage nécessaire.",
     "keybinds_restart_required": "Activer ou désactiver les raccourcis globaux nécessite un redémarrage.",
-    "restart": "Redémarrer"
+    "restart": "Redémarrer",
+    "action_toggle_window": "Afficher / masquer Dorion",
+    "action_toggle_window_note": "Met Dorion au premier plan, ou le masque s'il y est déjà.",
+    "action_toggle_on_top": "Activer / couper « toujours au premier plan »",
+    "action_toggle_on_top_note": "Jusqu'au redémarrage de Dorion.",
+    "action_cycle_opacity": "Changer la transparence de la fenêtre",
+    "action_cycle_opacity_note": "100 %, 80 %, 60 %, jusqu'au redémarrage de Dorion. Windows, et Linux sous X11."
   },
   "dorion_updater": {
     "update_title": "Mise à jour de {{appName}}",
@@ -247,6 +258,33 @@
     "el_gift": "Bouton Cadeau (barre de message)",
     "el_gif": "Bouton GIF (barre de message)",
     "el_sticker": "Bouton Autocollants (barre de message)",
-    "el_app_launcher": "Bouton Applications (barre de message)"
+    "el_app_launcher": "Bouton Applications (barre de message)",
+    "appearance": "Apparence",
+    "appearance_note": "Change l'apparence de Discord sans écrire de CSS. Repose sur les noms internes de Discord : peut cesser de marcher après une mise à jour de Discord. Pour tout le reste, utilisez un thème ou Inline CSS.",
+    "font": "Police (installée sur cet ordinateur, plusieurs séparées par des virgules)",
+    "font_invalid": "Ignorée : seulement des lettres, chiffres, espaces, tirets et virgules.",
+    "accent": "Couleur d'accent",
+    "default": "Par défaut",
+    "chat_width": "Largeur maximale du chat",
+    "wallpaper": "Fond d'écran",
+    "wallpaper_note": "Une image de votre ordinateur derrière Discord (PNG, JPG, WebP ou GIF, 5 Mo max). Une copie est gardée dans le dossier de Dorion. Utilise un peu plus de mémoire tant qu'elle est active.",
+    "choose_wallpaper": "Choisir une image",
+    "remove_wallpaper": "Retirer",
+    "wallpaper_too_big": "Image trop lourde (5 Mo max).",
+    "wallpaper_blur": "Flou",
+    "wallpaper_dim": "Assombrir (pour la lisibilité)",
+    "window": "Fenêtre",
+    "window_title": "Titre de la fenêtre (vide = titre habituel de Dorion)",
+    "frame_note": "Windows 11 uniquement. La couleur de barre de titre ne se voit qu'avec la barre de titre Windows.",
+    "border_color": "Couleur de la bordure",
+    "caption_color": "Couleur de la barre de titre",
+    "corners": "Coins de la fenêtre",
+    "corners_default": "Par défaut du système",
+    "corners_round": "Arrondis",
+    "corners_small": "Légèrement arrondis",
+    "corners_square": "Carrés",
+    "custom_selectors": "Masquer d'autres éléments",
+    "custom_selectors_note": "Un sélecteur CSS par ligne. Un sélecteur trop large peut tout masquer : le mode sans échec, plus bas, permet de s'en sortir.",
+    "custom_selectors_invalid": "Ignorés (invalides) : {{list}}"
   }
 }

@@ -25,11 +25,25 @@ export const HIDEABLE_ELEMENTS: { id: string, selector: string }[] = [
 
 const STYLE_ID = 'dorion-hidden-ui'
 
-export function applyHiddenUi(ids: string[] | undefined) {
-  const css = HIDEABLE_ELEMENTS
-    .filter(e => ids?.includes(e.id))
-    .map(e => `${e.selector} { display: none !important; }`)
-    .join('\n')
+// Only plain selectors: anything that could close the rule or start another one is refused
+export function validSelector(selector: string) {
+  const s = selector.trim()
+  if (!s || s.length > 300 || /[{};@<]|\/\*|\*\//.test(s)) return false
+
+  try {
+    document.querySelector(s)
+    return true
+  } catch {
+    return false
+  }
+}
+
+export function applyHiddenUi(ids: string[] | undefined, custom: string[] | undefined = []) {
+  const selectors = [
+    ...HIDEABLE_ELEMENTS.filter(e => ids?.includes(e.id)).map(e => e.selector),
+    ...(custom ?? []).filter(validSelector).slice(0, 50),
+  ]
+  const css = selectors.map(s => `${s} { display: none !important; }`).join('\n')
 
   let style = document.getElementById(STYLE_ID)
   if (!css) {

@@ -1,6 +1,6 @@
 import { Keybinds } from './components/Keybinds'
 import { register, unregister } from './util/events'
-import { fallbackActionTypes, fallbackActionDescriptions } from './util/actionOptions'
+import { fallbackActionTypes, fallbackActionDescriptions, windowActionTypes, windowActionDescriptions } from './util/actionOptions'
 
 const {
   flux: {
@@ -54,12 +54,16 @@ const viewedKeybindsCallback = (payload) => {
         action.value !== 'PUSH_TO_TALK'
       )
       : []
-    const actionTypes = availableActions.some((action) => action.value !== 'UNASSIGNED')
-      ? availableActions
-      : fallbackActionTypes.filter((action) => action.value !== 'PUSH_TO_TALK')
+    const actionTypes = [
+      ...(availableActions.some((action) => action.value !== 'UNASSIGNED')
+        ? availableActions
+        : fallbackActionTypes.filter((action) => action.value !== 'PUSH_TO_TALK')),
+      ...windowActionTypes(),
+    ]
     const actionDescriptions = {
       ...fallbackActionDescriptions,
       ...owner?.props?.keybindDescriptions,
+      ...windowActionDescriptions(),
     }
 
     const keybindsContainer = keybindsArea.parentElement?.parentElement

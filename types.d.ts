@@ -52,6 +52,18 @@ interface DorionSettings {
   hidden_ui_elements: string[];
   disabled_themes: string[];
   language: string;
+  custom_hidden_selectors: string[];
+  window_border_color: string;
+  window_caption_color: string;
+  window_corners: string;
+  window_title: string;
+  theme_hot_reload: boolean;
+  style_font: string;
+  style_accent: string;
+  style_chat_width: number;
+  wallpaper_file: string;
+  wallpaper_blur: number;
+  wallpaper_dim: number;
 }
 
 interface DorionTheme {

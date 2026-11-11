@@ -6,7 +6,7 @@ import { installThemeModal } from '../util/theme.jsx'
 import { defaultConfig } from '../util/settings.js'
 
 const {
-  ui: { Header, Button, HeaderTags, injectCss, Divider, ButtonSizes, Select, SelectOption, Switch, Text },
+  ui: { Header, Button, HeaderTags, injectCss, Divider, ButtonSizes, Select, SelectOption, Switch, SwitchItem, Text, showToast },
   solid: { createSignal, createEffect },
 } = shelter
 
@@ -67,6 +67,28 @@ export function ThemesPage() {
       return { ...p, disabled_themes: enabled ? disabled : [...disabled, theme] }
     })
     reloadThemes()
+  }
+
+  let themeInput: HTMLInputElement
+
+  const importThemeFile = async (file?: File) => {
+    themeInput.value = ''
+    if (!file) return
+
+    try {
+      const name: string = await invoke('import_theme', { name: file.name, contents: await file.text() })
+      setThemes(await getThemes())
+      appendTheme('', name)
+      reloadThemes()
+      showToast({ title: t('dorion_themes.imported', { name }) as string, duration: 4000 })
+    } catch (e) {
+      showToast({ title: t('dorion_themes.import_failed') as string, content: String(e), duration: 4000 })
+    }
+  }
+
+  const setHotReload = (enable: boolean) => {
+    setSettings(p => ({ ...p, theme_hot_reload: enable }))
+    invoke('set_theme_hot_reload', { enable })
   }
 
   const openThemesFolder = () => {
@@ -151,8 +173,24 @@ export function ThemesPage() {
 
       <div class={classes.pbuttons}>
         <Button size={ButtonSizes.MEDIUM} onClick={() => installThemeModal((theme: string) => appendTheme('', theme))}>{t('dorion_themes.install_from_link')}</Button>
+        <Button size={ButtonSizes.MEDIUM} onClick={() => themeInput.click()}>{t('dorion_themes.import_file')}</Button>
         <Button size={ButtonSizes.MEDIUM} onClick={openThemesFolder}>{t('dorion_themes.open_folder')}</Button>
+        <input
+          ref={themeInput}
+          type="file"
+          accept=".css,text/css"
+          style={{ display: 'none' }}
+          onChange={(e) => importThemeFile(e.currentTarget.files?.[0])}
+        />
       </div>
+
+      <SwitchItem
+        value={settings().theme_hot_reload ?? false}
+        onChange={setHotReload}
+        note={t('dorion_themes.hot_reload_note')}
+      >
+        {t('dorion_themes.hot_reload')}
+      </SwitchItem>
     </>
   )
 }
