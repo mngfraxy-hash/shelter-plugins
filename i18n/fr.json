@@ -313,13 +313,16 @@
     "export": "Copier ce thème dans Téléchargements",
     "exported": "Enregistré : vous pouvez le modifier et l'ajouter à vos thèmes",
     "disable_all": "Tout désactiver",
-    "priority_note": "Priorité : la galerie passe sous tout le reste. Les options Apparence, puis vos thèmes, puis l'éditeur CSS l'emportent sur elle. Exception : certaines règles de Midnight sont très spécifiques et peuvent l'emporter sur une règle de thème sans !important ; ajoutez !important à votre règle si elle ne s'applique pas.",
+    "priority_note": "Priorité : la galerie passe sous tout le reste. Les options Apparence, puis vos thèmes, puis l'éditeur CSS l'emportent sur elle. Exception : certaines règles de Midnight et de System24 sont très spécifiques et peuvent l'emporter sur une règle de thème sans !important ; ajoutez !important à votre règle si elle ne s'applique pas.",
     "credits": "Crédits et licences",
     "show_license": "Voir la licence",
     "hide_license": "Masquer la licence",
     "palette_high-contrast": "Contraste élevé",
     "palette_pastel-light": "Pastel clair",
     "palette_retro-green": "Rétro vert",
-    "palette_deuteranopia": "Deutéranopie"
+    "palette_deuteranopia": "Deutéranopie",
+    "palette_sepia": "Sépia",
+    "palette_everforest-dark": "Everforest sombre",
+    "palette_everforest-light": "Everforest clair"
   }
 }

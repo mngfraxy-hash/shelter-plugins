@@ -313,13 +313,16 @@
     "export": "Copy this theme to Downloads",
     "exported": "Saved, you can edit it and add it to your themes",
     "disable_all": "Turn the gallery off",
-    "priority_note": "Priority: the gallery is below everything else. Appearance options, then your themes, then the CSS editor win over it. Exception: some Midnight rules are very specific and can beat a theme rule without !important; add !important to your rule if it does not apply.",
+    "priority_note": "Priority: the gallery is below everything else. Appearance options, then your themes, then the CSS editor win over it. Exception: some Midnight and System24 rules are very specific and can beat a theme rule without !important; add !important to your rule if it does not apply.",
     "credits": "Credits and licenses",
     "show_license": "Show license",
     "hide_license": "Hide license",
     "palette_high-contrast": "High contrast",
     "palette_pastel-light": "Pastel light",
     "palette_retro-green": "Retro green",
-    "palette_deuteranopia": "Deuteranopia"
+    "palette_deuteranopia": "Deuteranopia",
+    "palette_sepia": "Sepia",
+    "palette_everforest-dark": "Everforest Dark",
+    "palette_everforest-light": "Everforest Light"
   }
 }
